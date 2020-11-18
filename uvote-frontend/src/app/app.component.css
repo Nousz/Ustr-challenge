@@ -1,0 +1,16 @@
+.size  {
+    margin: auto;
+    max-width: 90vw;
+}
+
+.container-fluid {
+    min-width: 90vw;
+    max-width: 90vw;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.d-flex {
+    flex-wrap: wrap;
+}
