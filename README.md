@@ -18,4 +18,4 @@
 * GET /candidates/id
 * POST /candidates body { "name": "", "votes": 0, "candidateNumber": 0 }
 * DELETE /candidates/id
-* put /candidates/id body { "name": "", "votes": 0, "candidateNumber": 0 }
+* PUT /candidates/id body { "name": "", "votes": 0, "candidateNumber": 0 }
