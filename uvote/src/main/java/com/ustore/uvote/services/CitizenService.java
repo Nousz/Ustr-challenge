@@ -2,6 +2,7 @@ package com.ustore.uvote.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -50,9 +51,11 @@ public class CitizenService {
 			return repository.save(entity);
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException(id);
+		} catch (ResourceNotFoundException e) {
+			throw new ResourceNotFoundException(id);
 		}
 	}
-	
+
 	private void updateData(Citizen entity, Citizen obj) {
 		entity.setName(obj.getName());
 		entity.setHasVoted(obj.getHasVoted());

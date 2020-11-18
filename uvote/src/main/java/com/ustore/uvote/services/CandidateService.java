@@ -2,6 +2,7 @@ package com.ustore.uvote.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -49,6 +50,8 @@ public class CandidateService {
 			updateData(entity, obj);
 			return repository.save(entity);
 		} catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException(id);
+		} catch(ResourceNotFoundException e) {
 			throw new ResourceNotFoundException(id);
 		}
 	}
