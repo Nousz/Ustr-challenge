@@ -11,11 +11,12 @@
 * PUT /vote/citizenId/candidateId
 * GET /citizens 
 * GET /citizens/id
-* POST /citizens body {"name": "", "tituloEleitoral": 0, "hasVoted": false }
+* POST /citizens body {"tituloEleitoral": 0, "hasVoted": false }
 * DELETE /citizens/id
-* PUT /citizens/id body {"name": "", "tituloEleitoral": 0, "hasVoted": false }
+* PUT /citizens/id body {"tituloEleitoral": 0, "hasVoted": false }
 * GET /candidates
 * GET /candidates/id
-* POST /candidates body { "name": "", "votes": 0, "candidateNumber": 0 }
+* GET /candidates/category/(Presidentes || Senadores || DeputadosFederais || Governadores || DeputadosEstaduais)
+* POST /candidates body { "category": "Presidente", "name": "", "votes": 0, "candidateNumber": 0 }
 * DELETE /candidates/id
-* PUT /candidates/id body { "name": "", "votes": 0, "candidateNumber": 0 }
+* PUT /candidates/id body { "category": "Presidente", "name": "", "votes": 0, "candidateNumber": 0 }
