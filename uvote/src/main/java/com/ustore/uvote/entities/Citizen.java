@@ -11,7 +11,6 @@ public class Citizen {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String name;
 	private Long tituloEleitoral;
 	private Boolean hasVoted;
 
@@ -19,9 +18,8 @@ public class Citizen {
 		super();
 	}
 
-	public Citizen(String name, Long tituloEleitoral, Boolean hasVoted) {
+	public Citizen(Long tituloEleitoral, Boolean hasVoted) {
 		super();
-		this.name = name;
 		this.tituloEleitoral = tituloEleitoral;
 		this.hasVoted = hasVoted;
 	}
@@ -32,14 +30,6 @@ public class Citizen {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public Long getTituloEleitoral() {
@@ -82,8 +72,7 @@ public class Citizen {
 
 	@Override
 	public String toString() {
-		return "Candidate [id=" + id + ", name=" + name + ", tituloEleitoral=" + tituloEleitoral + ", hasVoted="
-				+ hasVoted + "]";
+		return "Citizen [id=" + id + ", tituloEleitoral=" + tituloEleitoral + ", hasVoted=" + hasVoted + "]";
 	}
 
 }

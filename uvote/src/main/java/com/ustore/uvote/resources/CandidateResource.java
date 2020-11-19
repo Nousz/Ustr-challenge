@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import com.ustore.uvote.services.CandidateService;
 
 @RestController
 @RequestMapping(value = "/candidates")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CandidateResource {
 	@Autowired
 	private CandidateService service;
@@ -30,6 +32,12 @@ public class CandidateResource {
 	@GetMapping
 	public ResponseEntity<List<Candidate>> findAll() {
 		List<Candidate> list = service.findAll();
+		return ResponseEntity.ok().body(list);
+	}
+	
+	@GetMapping(value = "/category/{category}")
+	public ResponseEntity<List<Candidate>> findAllByCategory(@PathVariable String category) {
+		List<Candidate> list = service.findAll().stream().filter(person -> person.getCategory().equals(category)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(list);
 	}
 
@@ -44,7 +52,7 @@ public class CandidateResource {
 		List<Integer> candidate = service.findAll().stream().map(person -> person.getCandidateNumber()).collect(Collectors.toList());
 		
 		for (Integer integer : candidate) {
-			if(obj.getCandidateNumber() == integer) {
+			if(obj.getCandidateNumber() == integer || obj.getCategory() == null) {
 				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(obj);
 			}
 		}

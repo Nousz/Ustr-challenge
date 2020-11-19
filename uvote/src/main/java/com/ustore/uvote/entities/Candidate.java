@@ -11,6 +11,7 @@ public class Candidate {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	private String category;
 	private String name;
 	private Long votes;
 	private int candidateNumber;
@@ -18,9 +19,10 @@ public class Candidate {
 	public Candidate() {
 		super();
 	}
-	
-	public Candidate(String name, Long votes, int candidateNumber) {
+
+	public Candidate(String name, Long votes, int candidateNumber, String category) {
 		super();
+		this.category = category;
 		this.name = name;
 		this.votes = votes;
 		this.candidateNumber = candidateNumber;
@@ -32,6 +34,14 @@ public class Candidate {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getName() {
@@ -82,8 +92,8 @@ public class Candidate {
 
 	@Override
 	public String toString() {
-		return "Citizen [id=" + id + ", name=" + name + ", votes=" + votes + ", candidateNumber=" + candidateNumber
-				+ "]";
+		return "Candidate [id=" + id + ", category=" + category + ", name=" + name + ", votes=" + votes
+				+ ", candidateNumber=" + candidateNumber + "]";
 	}
 
 }

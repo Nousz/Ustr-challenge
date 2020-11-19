@@ -57,7 +57,6 @@ public class CitizenService {
 	}
 
 	private void updateData(Citizen entity, Citizen obj) {
-		entity.setName(obj.getName());
 		entity.setHasVoted(obj.getHasVoted());
 		entity.setTituloEleitoral(obj.getTituloEleitoral());
 	}

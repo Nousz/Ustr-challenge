@@ -1,0 +1,19 @@
+<div class="size">
+    <h1>Presidente</h1>
+    <table class="table table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nome do candidato</th>
+          <th scope="col">Numero do candidato</th>
+          <th scope="col">Votos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of candidate">
+          <td>{{ person.name }}</td>
+          <td>{{ person.candidateNumber }}</td>
+          <td>{{ person.votes }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
